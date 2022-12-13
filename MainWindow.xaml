@@ -132,7 +132,7 @@
                     Usuário autenticado!
                     </TextBlock>
                     <Button
-                    Click="Login_Click"
+                    Click="Close_Click"
                     Width="100"
                     Height="30"
                     Margin="0 0 0 30"
@@ -160,7 +160,7 @@
                     Credenciais inválidas!
                     </TextBlock>
                     <Button
-                    Click="Login_Click"
+                    Click="Close_Click"
                     Width="100"
                     Height="30"
                     Margin="0 0 0 30"

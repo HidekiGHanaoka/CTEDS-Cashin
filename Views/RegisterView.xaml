@@ -57,12 +57,12 @@
 
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <Label Content="Email" FontSize="24"/>
-                <TextBox Height="40" FontSize="24"/>
+                <TextBox Height="40" FontSize="24" x:Name="EmailForm"/>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.Column="1">
                 <Label Content="Senha" FontSize="24"/>
-                <PasswordBox Height="40" FontSize="24"/>
+                <PasswordBox Height="40" FontSize="24" x:Name="PasswordForm"/>
             </StackPanel>
 
             <Button 
@@ -75,6 +75,7 @@
                     Foreground="White" 
                     Background="#83BD75" 
                     Cursor="Hand" 
+                    Click="RegisterDB_Click"
                     />
         </Grid>
     </Grid>

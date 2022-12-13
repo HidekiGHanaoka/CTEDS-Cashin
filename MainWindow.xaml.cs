@@ -27,7 +27,7 @@ namespace Cashin
             InitializeComponent();
         }
 
-        private void ButtonSubmit_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             string stringConexao = "Server=labsoft.pcs.usp.br; Initial Catalog=db_12; User Id=usuario_12; Password=9077879676;";
             SqlConnection con = new SqlConnection(stringConexao);
@@ -62,7 +62,7 @@ namespace Cashin
             }
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
             Sucess.IsOpen = false;
             Fail.IsOpen = false;
