@@ -77,6 +77,62 @@
                     Cursor="Hand" 
                     Click="RegisterDB_Click"
                     />
+            <Popup 
+            Name="AlreadyRegistered"
+            Placement="Center"
+            >
+                <Grid
+                Width="300"
+                Height="180"
+                Background="White">
+                    <TextBlock
+                    FontFamily="Exo"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+                    O email já foi cadastrado!
+                    </TextBlock>
+                    <Button
+                    Click="Close_Click"
+                    Width="100"
+                    Height="30"
+                    Margin="0 0 0 30"
+                    VerticalAlignment="Bottom"
+                    >
+                        Fechar
+                    </Button>
+
+                </Grid>
+            </Popup>
+            <Popup 
+            Name="SucessRegister"
+            Placement="Center"
+            >
+                <Grid
+                Width="300"
+                Height="180"
+                Background="White">
+                    <TextBlock
+                    FontFamily="Exo"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+                    Usuário cadastrado!
+                    </TextBlock>
+                    <Button
+                    Click="Close_Click"
+                    Width="100"
+                    Height="30"
+                    Margin="0 0 0 30"
+                    VerticalAlignment="Bottom"
+                    >
+                        Fechar
+                    </Button>
+
+                </Grid>
+            </Popup>
         </Grid>
     </Grid>
 </UserControl>

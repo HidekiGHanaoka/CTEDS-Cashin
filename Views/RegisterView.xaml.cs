@@ -42,12 +42,12 @@ namespace Cashin.Views
                     if (count == 1)
                     {
                         this.Opacity = 0.5;
-                        //AlreadyRegistered.IsOpen = true; //Popup
+                        AlreadyRegistered.IsOpen = true; //Popup
                     }
                     else
                     {
                         this.Opacity = 0.5;
-                        //SucessRegister.IsOpen = true; // Popup
+                        SucessRegister.IsOpen = true; // Popup
                         String queryCreateUser = "INSERT INTO [db_12].[dbo].[User] VALUES (@Email, @Username, @Password)";
                         SqlCommand sqlCmdRegisterUser = new SqlCommand(queryCreateUser, con);
                         sqlCmdRegisterUser.CommandType = System.Data.CommandType.Text;
@@ -66,6 +66,12 @@ namespace Cashin.Views
                 {
                     con.Close();
                 }
+        }
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            SucessRegister.IsOpen = false;
+            AlreadyRegistered.IsOpen = false;
+            this.Opacity = 1;
         }
     }
 }
