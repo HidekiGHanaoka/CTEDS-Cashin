@@ -8,7 +8,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\config.png" />
+    <None Remove="images\grafico.png" />
+    <None Remove="images\historico.png" />
+    <None Remove="images\image.png" />
+    <None Remove="images\ingles 1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\historico.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\config.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\grafico.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\ingles 1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

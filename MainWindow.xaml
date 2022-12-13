@@ -8,33 +8,7 @@
         xmlns:viewmodels="clr-namespace:Cashin.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1366" MaxWidth="1920" MaxHeight="1080" Background="White">
-    <Window.Resources>
-        <DataTemplate x:Name="accountViewTemplate" DataType="{x:Type viewmodels:AccountViewModel}">
-            <views:AccountView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="configurationViewTemplate" DataType="{x:Type viewmodels:ConfigurationViewModel}">
-            <views:ConfigurationView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="generalViewTemplate" DataType="{x:Type viewmodels:GeneralViewModel}">
-            <views:GeneralView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="graphicViewTemplate" DataType="{x:Type viewmodels:GraphicViewModel}">
-            <views:GraphicView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="newItemViewTemplate" DataType="{x:Type viewmodels:NewItemViewModel}">
-            <views:NewItemView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="perfilViewTemplate" DataType="{x:Type viewmodels:PerfilViewModel}">
-            <views:PerfilView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="recentViewTemplate" DataType="{x:Type viewmodels:RecentViewModel}">
-            <views:RecentView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="registerViewTemplate" DataType="{x:Type viewmodels:RegisterViewModel}">
-            <views:RegisterView DataContext="{Binding}"/>
-        </DataTemplate>
-    </Window.Resources>
-    
+
     <Grid Background="#F0F0F0">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
