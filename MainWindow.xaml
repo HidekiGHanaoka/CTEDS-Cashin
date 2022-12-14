@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cashin" 
-        xmlns:views="clr-namespace:Cashin.Views"
-        xmlns:viewmodels="clr-namespace:Cashin.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1366" MaxWidth="1920" MaxHeight="1080" Background="White">
 
