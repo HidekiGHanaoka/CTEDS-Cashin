@@ -54,8 +54,8 @@ namespace Cashin
                     sqlCmdRegisterUser.Parameters.AddWithValue("@Name", NameForm.Text);
                     sqlCmdRegisterUser.Parameters.AddWithValue("@Email", EmailForm.Text);
                     sqlCmdRegisterUser.Parameters.AddWithValue("@Password", PasswordForm.Password);
-                    sqlCmdRegisterUser.Parameters.AddWithValue("@Balance", 0);
-                    sqlCmdRegisterUser.Parameters.AddWithValue("@Limit", 0);
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Balance", Convert.ToSingle(0));
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Limit", Convert.ToSingle(0));
                     sqlCmdRegisterUser.ExecuteScalar();
 
                 }

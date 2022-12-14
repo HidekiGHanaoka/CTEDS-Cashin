@@ -13,5 +13,6 @@ namespace Cashin.Models
         public string Email { get; set; } = string.Empty ;
         public float Saldo { get; set; } = 0;
         public float Limite { get; set; } = 0;
+        public List<Item> ListaItens = new List<Item>();
     }
 }
