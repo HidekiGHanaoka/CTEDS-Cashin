@@ -29,7 +29,7 @@
                 <Grid Grid.Row="0" Margin="40 0 0 0">
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="Saldo" FontSize="42"/>
-                        <TextBlock Text="R$5.000.230.89" FontSize="42"/>
+                        <TextBlock Text="R$5.000.230.89" FontSize="42" x:Name="BoxBalance"/>
                         <Button 
                             Margin="0 15 0 0"
                             Height=" 40" 
@@ -46,7 +46,7 @@
                 <Grid Grid.Row="1" Margin="40 0 0 0">
                     <StackPanel VerticalAlignment="Top">
                         <TextBlock Text="Limite Restante" FontSize="42"/>
-                        <TextBlock Text="R$5.000.230.89" FontSize="42"/>
+                        <TextBlock Text="R$5.000.230.89" FontSize="42" x:Name="BoxLimit"/>
                         <Button 
                             Margin="0 15 0 0"
                             Height=" 40" 
@@ -90,11 +90,12 @@
                                     <TextBlock 
                                         Text="ABCDEFGHIJKLMNOP"
                                         FontSize="26"
-                                        
+                                        x:Name="Box1Titulo"
                                         />
                                     <TextBlock
                                         Text="Categoria"
                                         FontSize="14"
+                                        x:Name="Box1Categoria"
                                         />
                                 </StackPanel>
                                 <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
@@ -114,11 +115,12 @@
                                     <TextBlock 
                                         Text="ABCDEFGHIJKLMNOP"
                                         FontSize="26"
-                                        
+                                        x:Name="Box2Titulo"
                                         />
                                     <TextBlock
                                         Text="Categoria"
                                         FontSize="14"
+                                        x:Name="Box2Categoria"
                                         />
                                 </StackPanel>
                                 <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
@@ -138,11 +140,12 @@
                                     <TextBlock 
                                         Text="ABCDEFGHIJKLMNOP"
                                         FontSize="26"
-                                        
+                                        x:Name="Box3Titulo"
                                         />
                                     <TextBlock
                                         Text="Categoria"
                                         FontSize="14"
+                                        x:Name="Box3Categoria"
                                         />
                                 </StackPanel>
                                 <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
@@ -162,11 +165,12 @@
                                     <TextBlock 
                                         Text="ABCDEFGHIJKLMNOP"
                                         FontSize="26"
-                                        
+                                        x:Name="Box4Titulo"
                                         />
                                     <TextBlock
                                         Text="Categoria"
                                         FontSize="14"
+                                        x:Name="Box4Categoria"
                                         />
                                 </StackPanel>
                                 <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
@@ -186,11 +190,12 @@
                                     <TextBlock 
                                         Text="ABCDEFGHIJKLMNOP"
                                         FontSize="26"
-                                        
+                                        x:Name="Box5Titulo"
                                         />
                                     <TextBlock
                                         Text="Categoria"
                                         FontSize="14"
+                                        x:Name="Box5Categoria"
                                         />
                                 </StackPanel>
                                 <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>

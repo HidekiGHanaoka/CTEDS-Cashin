@@ -22,6 +22,8 @@ namespace Cashin
         public AccountWindow()
         {
             InitializeComponent();
+            BoxLimit.Text = $"R$ 0,00";
+            BoxBalance.Text = $"R$ 0,00";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
