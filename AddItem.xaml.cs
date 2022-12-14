@@ -35,15 +35,20 @@ namespace Cashin
                 String queryCreateTransaction = "INSERT INTO [dbo].[Transactions]([ID],[Title],[Value],[Description],[Date],[Type],[Category]) VALUES (@ID, @Title, @Value, @Description, @Date, @Type, @Category)";
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
+                Guid id = User.Id;
+                DateTime data = DateTime.Now;
+                string titulo = TituloForm.Text;
+                string categoria = CategoriaForm.Text;
+                string desc = DescricaoForm.Text;
                 string tipo = TipoForm.Text;
                 float valor = Convert.ToSingle(ValorForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", User.Id);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Date", System.DateTime.Now.ToShortDateString());
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Title", TituloForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", id);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Date", data);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Title", titulo);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Value", valor);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Category", CategoriaForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Description", DescricaoForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Type", TipoForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Category", categoria);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Description", desc);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Type", tipo);
                 int count = 0;
                 try
                 {
@@ -58,6 +63,16 @@ namespace Cashin
                 {
                     BalanceController.ActualBalance(tipo, valor);
                     LimitController.ActualLimit(tipo, valor);
+                    Item newItem = new()
+                    {
+                        Id = id,
+                        Titulo = titulo,
+                        Valor = valor,
+                        Descricao = desc,
+                        Tipo = tipo,
+                        Categoria = categoria
+                    };
+                    User.ListaItens.Add(newItem);
                     SucessTransaction.IsOpen = true;
                 }
                 else
