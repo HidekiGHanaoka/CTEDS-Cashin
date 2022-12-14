@@ -36,7 +36,7 @@ namespace Cashin
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
                 Guid id = User.Id;
-                DateTime data = DateTime.Now;
+                string data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 string titulo = TituloForm.Text;
                 string categoria = CategoriaForm.Text;
                 string desc = DescricaoForm.Text;
