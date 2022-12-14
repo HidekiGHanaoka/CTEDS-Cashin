@@ -79,8 +79,8 @@ namespace Cashin
                         rdr2 = cmd.ExecuteReader();
                         while (rdr.Read())
                         {
-                            User.Id = (Guid)rdr2["ID"];
-                            User.Nome = rdr2["Name"].ToString();
+                            User. = (Guid)rdr2["ID"];
+                            User. = rdr2["Name"].ToString();
                             User.Email = rdr2["Email"].ToString();
                             User.Saldo = Convert.ToSingle(rdr2["Balance"]);
                             User.Limite = Convert.ToSingle(rdr2["Limit"]);
