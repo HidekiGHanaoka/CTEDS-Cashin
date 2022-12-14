@@ -33,10 +33,10 @@ namespace Cashin
             {
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
-                String query = "SELECT COUNT(*) FROM [db_12].[dbo].[User] WHERE email=@Username";
+                String query = "SELECT COUNT(*) FROM [dbo].[Users] WHERE Email=@Email";
                 SqlCommand sqlCmd = new SqlCommand(query, con);
                 sqlCmd.CommandType = System.Data.CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", EmailForm.Text); //Username passado no WPF
+                sqlCmd.Parameters.AddWithValue("@Email", EmailForm.Text);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
@@ -47,12 +47,15 @@ namespace Cashin
                 {
                     this.Opacity = 0.5;
                     SucessRegister.IsOpen = true; // Popup
-                    String queryCreateUser = "INSERT INTO [db_12].[dbo].[User] VALUES (@Email, @Username, @Password)";
+                    String queryCreateUser = "INSERT INTO [dbo].[Users]([ID],[Name],[Email],[Password],[Balance],[Limit]) VALUES (@ID, @Name, @Email, @Password, @Balance, @Limit)";
                     SqlCommand sqlCmdRegisterUser = new SqlCommand(queryCreateUser, con);
                     sqlCmdRegisterUser.CommandType = System.Data.CommandType.Text;
-                    sqlCmdRegisterUser.Parameters.AddWithValue("@Username", UsernameForm.Text); //Username passado no WPF
-                    sqlCmdRegisterUser.Parameters.AddWithValue("@Email", EmailForm.Text); //Username passado no WPF
-                    sqlCmdRegisterUser.Parameters.AddWithValue("@Password", PasswordForm.Password); //Senha passada no WPF
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@ID", Guid.NewGuid());
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Name", NameForm.Text);
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Email", EmailForm.Text);
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Password", PasswordForm.Password);
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Balance", 0);
+                    sqlCmdRegisterUser.Parameters.AddWithValue("@Limit", 0);
                     sqlCmdRegisterUser.ExecuteScalar();
 
                 }

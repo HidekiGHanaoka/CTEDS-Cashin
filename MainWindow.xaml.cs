@@ -35,10 +35,10 @@ namespace Cashin
             {
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
-                String query = "SELECT COUNT(*) FROM [db_12].[dbo].[User] WHERE ((email=@Username) AND (senha=@Password))";
+                String query = "SELECT COUNT(*) FROM [dbo].[Users] WHERE Email=@Email AND Password=@Password";
                 SqlCommand sqlCmd = new SqlCommand(query, con);
                 sqlCmd.CommandType = System.Data.CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", UsernameForm.Text);
+                sqlCmd.Parameters.AddWithValue("@Email", EmailForm.Text);
                 sqlCmd.Parameters.AddWithValue("@Password", PasswordForm.Password);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
