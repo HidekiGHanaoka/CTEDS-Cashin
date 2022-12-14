@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cashin.ViewModels;
+using Cashin.Models;
 
 namespace Cashin
 {
@@ -22,6 +23,8 @@ namespace Cashin
     /// </summary>
     public partial class MainWindow : Window
     {
+        Context ctx = new Context();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,11 +44,30 @@ namespace Cashin
                 sqlCmd.Parameters.AddWithValue("@Email", EmailForm.Text);
                 sqlCmd.Parameters.AddWithValue("@Password", PasswordForm.Password);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+
                 if (count == 1)
                 {
                     this.Opacity = 0.5;
                     Sucess.IsOpen = true;
-                    
+                    SqlDataReader rdr;
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        rdr = cmd.ExecuteReader();
+
+                        while (rdr.Read())
+                        {
+                            ctx.ActualUser = new User()
+                            {
+                                Nome = rdr["username"].ToString(),
+                                Email = rdr["email"].ToString(),
+                                Saldo = (float)rdr["saldo"],
+                                Limite = (float)rdr["limite"]
+                            };
+                        }
+                    }
+                    //String query2 = "SELECT * FROM [Transactions] WHERE ("
+
                 }
                 else
                 {
