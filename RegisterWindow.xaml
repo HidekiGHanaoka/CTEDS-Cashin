@@ -53,7 +53,7 @@
 
                 <StackPanel Grid.Row="1" Grid.Column="1">
                     <Label Content="Nome de Usuário" FontSize="24"/>
-                    <TextBox Height="40" FontSize="24" x:Name="UsernameForm"/>
+                    <TextBox Height="40" FontSize="24" x:Name="NameForm"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="1">
