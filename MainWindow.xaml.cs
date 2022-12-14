@@ -67,6 +67,7 @@ namespace Cashin
                             User.Saldo = Convert.ToSingle(rdr["Balance"]);
                             User.Limite = Convert.ToSingle(rdr["Limit"]);
                         }
+                        rdr.Close();
                     }
 
                     String query3 = "SELECT * FROM [Transactions] WHERE ID=@Id";
@@ -74,19 +75,24 @@ namespace Cashin
                     cmd2.Parameters.AddWithValue("@Id", User.Id);
                     SqlDataReader rdr2;
 
-                    using (cmd)
+                    using (cmd2)
                     {
-                        rdr2 = cmd.ExecuteReader();
-                        while (rdr.Read())
+                        rdr2 = cmd2.ExecuteReader();
+                        while (rdr2.Read())
                         {
-                            User. = (Guid)rdr2["ID"];
-                            User. = rdr2["Name"].ToString();
-                            User.Email = rdr2["Email"].ToString();
-                            User.Saldo = Convert.ToSingle(rdr2["Balance"]);
-                            User.Limite = Convert.ToSingle(rdr2["Limit"]);
+                            Item NewItem = new Item()
+                            {
+                                Id = (Guid)rdr2["ID"],
+                                Titulo = rdr2["Title"].ToString(),
+                                Valor = Convert.ToSingle(rdr2["Value"]),
+                                Descricao = rdr2["Description"].ToString(),
+                                Tipo = rdr2["Type"].ToString(),
+                                Categoria = rdr2["Category"].ToString()
+                            };
+                            User.ListaItens.Add(NewItem);
                         }
+                        rdr2.Close();
                     }
-
                 }
                 else
                 {

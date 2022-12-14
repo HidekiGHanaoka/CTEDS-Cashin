@@ -8,7 +8,7 @@ namespace Cashin.Models
 {
     public class Item
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public float Valor { get; set; } = 0;
         public string Descricao { get; set; } = string.Empty;
