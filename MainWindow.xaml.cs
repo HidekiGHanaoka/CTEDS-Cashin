@@ -24,8 +24,7 @@ namespace Cashin
     /// </summary>
     public partial class MainWindow : Window
     {
-        User ActualUser = new User();
-
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -62,20 +61,32 @@ namespace Cashin
                         rdr = cmd.ExecuteReader();
                         while (rdr.Read())
                         {
-                            User user = new User()
-                            {
-                                Id = (Guid)rdr["ID"],
-                                Nome = rdr["Name"].ToString(),
-                                Email = rdr["Email"].ToString(),
-                                Saldo = Convert.ToSingle(rdr["Balance"]),
-                                Limite = Convert.ToSingle(rdr["Limit"])
-                            };
-                            ActualUser = user;
+                            User.Id = (Guid)rdr["ID"];
+                            User.Nome = rdr["Name"].ToString();
+                            User.Email = rdr["Email"].ToString();
+                            User.Saldo = Convert.ToSingle(rdr["Balance"]);
+                            User.Limite = Convert.ToSingle(rdr["Limit"]);
                         }
                     }
+
                     String query3 = "SELECT * FROM [Transactions] WHERE ID=@Id";
                     SqlCommand cmd2 = new SqlCommand(query3, con);
-                    cmd2.Parameters.AddWithValue("@Id", EmailForm.Text);
+                    cmd2.Parameters.AddWithValue("@Id", User.Id);
+                    SqlDataReader rdr2;
+
+                    using (cmd)
+                    {
+                        rdr2 = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            User.Id = (Guid)rdr2["ID"];
+                            User.Nome = rdr2["Name"].ToString();
+                            User.Email = rdr2["Email"].ToString();
+                            User.Saldo = Convert.ToSingle(rdr2["Balance"]);
+                            User.Limite = Convert.ToSingle(rdr2["Limit"]);
+                        }
+                    }
+
                 }
                 else
                 {

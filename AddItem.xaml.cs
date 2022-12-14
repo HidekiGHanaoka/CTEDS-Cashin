@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cashin.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,7 +18,6 @@ namespace Cashin
 {
     public partial class AddItem : Window
     {
-        Context ctx = new Context();
         public AddItem()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace Cashin
                 String queryCreateTransaction = "INSERT INTO [dbo].[Transactions]([ID],[Title],[Value],[Description],[Date],[Type],[Category]) VALUES (@ID, @Title, @Value, @Description, @Date, @Type, @Category)";
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", ctx.User.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", User.Id);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Date", System.DateTime.Now.ToShortDateString());
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Title", TituloForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Value", ValorForm.Text);
