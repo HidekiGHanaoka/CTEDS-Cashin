@@ -15,11 +15,9 @@ using System.Windows.Shapes;
 
 namespace Cashin
 {
-    /// <summary>
-    /// Interaction logic for AddItem.xaml
-    /// </summary>
     public partial class AddItem : Window
     {
+        Context ctx = new Context();
         public AddItem()
         {
             InitializeComponent();
@@ -32,15 +30,16 @@ namespace Cashin
             {
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
-                String queryCreateTransaction = "INSERT INTO [db_12].[dbo].[Transações] ([email],[data],[valor],[categoria],[descrição],[tipo]) VALUES(@email, @data, @valor, @categoria, @descrição, @tipo)";
+                String queryCreateTransaction = "INSERT INTO [dbo].[Transactions]([ID],[Title],[Value],[Description],[Date],[Type],[Category]) VALUES (@ID, @Title, @Value, @Description, @Date, @Type, @Category)";
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@email", TituloForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@data", System.DateTime.Now.ToShortDateString());
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@valor", ValorForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@categoria", CategoriaForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@descrição", DescricaoForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@tipo", TipoForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", ctx.User.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Date", System.DateTime.Now.ToShortDateString());
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Title", TituloForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Value", ValorForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Category", CategoriaForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Description", DescricaoForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Type", TipoForm.Text);
                 sqlCmdCreateTransaction.ExecuteScalar();
             }
             catch (Exception ex)
@@ -58,4 +57,5 @@ namespace Cashin
             this.Opacity = 1;
         }
     }
-}
+} 
+
