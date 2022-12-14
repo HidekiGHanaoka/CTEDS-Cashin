@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Cashin.Models;
 
 namespace Cashin
 {
@@ -22,14 +24,24 @@ namespace Cashin
         public AccountWindow()
         {
             InitializeComponent();
-            BoxLimit.Text = $"R$ 0,00";
-            BoxBalance.Text = $"R$ 0,00";
+            BoxLimit.Text = $"R$ {User.Limite}";
+            BoxBalance.Text = $"R$ {User.Saldo}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddItem window = new AddItem();
             window.ShowDialog();
+        }
+
+        private void AlterarSaldo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AlterarLimite_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

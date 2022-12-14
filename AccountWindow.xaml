@@ -40,6 +40,7 @@
                             Background="#83BD75" 
                             Cursor="Hand" 
                             HorizontalAlignment="Left"
+                            Click="AlterarSaldo_Click"
                             />
                     </StackPanel>
                 </Grid>
@@ -57,6 +58,7 @@
                             Background="#83BD75" 
                             Cursor="Hand" 
                             HorizontalAlignment="Left"
+                            Click="AlterarLimite_Click"
                             />
 
                     </StackPanel>
