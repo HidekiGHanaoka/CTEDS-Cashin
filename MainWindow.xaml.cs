@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Cashin.ViewModels;
 using Cashin.Models;
+using System.Runtime.CompilerServices;
 
 namespace Cashin
 {
@@ -23,7 +24,7 @@ namespace Cashin
     /// </summary>
     public partial class MainWindow : Window
     {
-        Context ctx = new Context();
+        User ActualUser = new User();
 
         public MainWindow()
         {
@@ -51,26 +52,30 @@ namespace Cashin
                     Sucess.IsOpen = true;
 
                     String query2 = "SELECT ID, Name, Email, Balance, Limit FROM [dbo].[Users] WHERE Email=@Email AND Password=@Password";
-                    //SqlDataReader rdr;
+                    SqlCommand cmd = new SqlCommand(query2, con);
+                    cmd.Parameters.AddWithValue("@Email", EmailForm.Text);
+                    cmd.Parameters.AddWithValue("@Password", PasswordForm.Password);
+                    SqlDataReader rdr;
 
-                    //using (sqlCmd)
-                    //{
-                    //    rdr = sqlCmd.ExecuteReader();
-
-                    //    while (rdr.Read())
-                    //    {
-                    //        User user = new User()
-                    //        {
-                    //            Id = (Guid)rdr["ID"],
-                    //            Nome = rdr["Name"].ToString(),
-                    //            Email = rdr["Email"].ToString(),
-                    //            Saldo = (float)rdr["Balance"],
-                    //            Limite = (float)rdr["Limit"]
-                    //        };
-                    //    }
-                    //}
-                    //String query2 = "SELECT * FROM [Transactions] WHERE ("
-
+                    using (cmd)
+                    {
+                        rdr = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            User user = new User()
+                            {
+                                Id = (Guid)rdr["ID"],
+                                Nome = rdr["Name"].ToString(),
+                                Email = rdr["Email"].ToString(),
+                                Saldo = Convert.ToSingle(rdr["Balance"]),
+                                Limite = Convert.ToSingle(rdr["Limit"])
+                            };
+                            ActualUser = user;
+                        }
+                    }
+                    String query3 = "SELECT * FROM [Transactions] WHERE ID=@Id";
+                    SqlCommand cmd2 = new SqlCommand(query3, con);
+                    cmd2.Parameters.AddWithValue("@Id", EmailForm.Text);
                 }
                 else
                 {

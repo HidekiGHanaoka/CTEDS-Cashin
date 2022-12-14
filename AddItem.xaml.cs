@@ -35,7 +35,7 @@ namespace Cashin
                 String queryCreateTransaction = "INSERT INTO [db_12].[dbo].[Transações] ([email],[data],[valor],[categoria],[descrição],[tipo]) VALUES(@email, @data, @valor, @categoria, @descrição, @tipo)";
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@email", TituloForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@email", ctx.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@data", System.DateTime.Now.ToShortDateString());
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@valor", ValorForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@categoria", CategoriaForm.Text);
