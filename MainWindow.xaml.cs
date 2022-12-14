@@ -65,16 +65,17 @@ namespace Cashin
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            AccountWindow page = new AccountWindow();
-            this.Content = page;
+            AccountWindow window = new AccountWindow();
+            window.Show();
+            this.Close();
             Sucess.IsOpen = false;
             Fail.IsOpen = false;
             this.Opacity = 1;
         }
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow page = new RegisterWindow();
-            this.Content = page;
+            RegisterWindow window = new RegisterWindow();
+            window.ShowDialog();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

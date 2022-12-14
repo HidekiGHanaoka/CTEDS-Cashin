@@ -1,13 +1,11 @@
-﻿<Page x:Class="Cashin.AccountWindow"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Cashin"
-      mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1366"
-      Title="AccountPage">
-
+﻿<Window x:Class="Cashin.AccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cashin"
+        mc:Ignorable="d"
+        Title="AccountWindow" Height="768" Width="1366">
     <Grid Background="#F0F0F0">
         <Grid Background="#83BD75" Height="100" VerticalAlignment="Top">
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -60,7 +58,7 @@
                             Cursor="Hand" 
                             HorizontalAlignment="Left"
                             />
-                        
+
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -76,7 +74,7 @@
                             Foreground="White" 
                             Background="#83BD75" 
                             Cursor="Hand" 
-                            HorizontalAlignment="Left"
+                            HorizontalAlignment="Left" Click="Button_Click"
                             />
                     <StackPanel Margin="0 30 0 0">
                         <Button
@@ -86,30 +84,6 @@
                             Cursor="Hand" 
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Stretch">
-                            
-                            <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                    <TextBlock 
-                                        Text="ABCDEFGHIJKLMNOP"
-                                        FontSize="26"
-                                        
-                                        />
-                                    <TextBlock
-                                        Text="Categoria"
-                                        FontSize="14"
-                                        />
-                                </StackPanel>
-                                <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
-                                <TextBlock Width="300"  Text="DESCRICAODESCRICAODESCRICAODESCRICAODESCRICAODESCRICAODESCRICAO" TextWrapping="Wrap" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="14"/>
-                            </StackPanel>
-                        </Button>
-                        <Button
-                            Height="75"                              
-                            FontSize="20" 
-                            Background="White" 
-                            Cursor="Hand" 
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Stretch">
 
                             <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -206,7 +180,31 @@
                             Cursor="Hand" 
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Stretch">
-                            
+
+                            <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <TextBlock 
+                                        Text="ABCDEFGHIJKLMNOP"
+                                        FontSize="26"
+                                        
+                                        />
+                                    <TextBlock
+                                        Text="Categoria"
+                                        FontSize="14"
+                                        />
+                                </StackPanel>
+                                <TextBlock Text="-R$9.879.876,56" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="30"/>
+                                <TextBlock Width="300"  Text="DESCRICAODESCRICAODESCRICAODESCRICAODESCRICAODESCRICAODESCRICAO" TextWrapping="Wrap" VerticalAlignment="Center" Margin="40 0 0 0" FontSize="14"/>
+                            </StackPanel>
+                        </Button>
+                        <Button
+                            Height="75"                              
+                            FontSize="20" 
+                            Background="White" 
+                            Cursor="Hand" 
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch">
+
                             <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                     <TextBlock 
@@ -226,7 +224,7 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-                  
+
         </Grid>
         <Grid Background="#83BD75" Height="60" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
@@ -265,4 +263,4 @@
             </Grid>
         </Grid>
     </Grid>
-</Page>
+</Window>

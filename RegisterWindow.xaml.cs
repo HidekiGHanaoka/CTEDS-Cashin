@@ -11,7 +11,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cashin
@@ -19,12 +18,13 @@ namespace Cashin
     /// <summary>
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    public partial class RegisterWindow : Page
+    public partial class RegisterWindow : Window
     {
         public RegisterWindow()
         {
             InitializeComponent();
         }
+
         private void RegisterDB_Click(object sender, RoutedEventArgs e)
         {
             string stringConexao = "Server=labsoft.pcs.usp.br; Initial Catalog=db_12; User Id=usuario_12; Password=9077879676;";
@@ -68,10 +68,10 @@ namespace Cashin
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            if (SucessRegister.IsOpen == true) {
-                AccountWindow page = new AccountWindow();
-                this.Content = page;
-            };
+            if (SucessRegister.IsOpen)
+            {
+                this.Close();
+            }
             SucessRegister.IsOpen = false;
             AlreadyRegistered.IsOpen = false;
             this.Opacity = 1;

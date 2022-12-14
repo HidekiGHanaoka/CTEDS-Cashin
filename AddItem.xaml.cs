@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cashin
 {
     /// <summary>
-    /// Interaction logic for AccountWindow.xaml
+    /// Interaction logic for AddItem.xaml
     /// </summary>
-    public partial class AccountWindow : Page
+    public partial class AddItem : Window
     {
-        public AccountWindow()
+        public AddItem()
         {
             InitializeComponent();
         }
