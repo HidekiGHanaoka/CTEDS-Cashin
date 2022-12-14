@@ -32,16 +32,27 @@ namespace Cashin
         {
             AddItem window = new AddItem();
             window.ShowDialog();
+            AccountWindow newWindow = new AccountWindow();
+            newWindow.Show();
+            this.Close();
         }
 
         private void AlterarSaldo_Click(object sender, RoutedEventArgs e)
         {
-
+            AlterarSaldo window = new AlterarSaldo();
+            window.ShowDialog();
+            AccountWindow newWindow = new AccountWindow();
+            newWindow.Show();
+            this.Close();
         }
 
         private void AlterarLimite_Click(object sender, RoutedEventArgs e)
         {
-
+            AlterarLimite window = new AlterarLimite();
+            window.ShowDialog();
+            AccountWindow newWindow = new AccountWindow();
+            newWindow.Show();
+            this.Close();
         }
     }
 }

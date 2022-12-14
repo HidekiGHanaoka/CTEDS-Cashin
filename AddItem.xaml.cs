@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,26 @@ namespace Cashin
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Category", CategoriaForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Description", DescricaoForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Type", TipoForm.Text);
-                sqlCmdCreateTransaction.ExecuteScalar();
+                int count = 0;
+                try
+                {
+                    sqlCmdCreateTransaction.ExecuteScalar();
+                    count = 1;
+                }
+                catch
+                {
+                    count = 0;
+                }
+                if (count == 1)
+                {
+                    SucessTransaction.IsOpen = true;
+                }
+                else
+                {
+                    SucessTransaction.IsOpen = false;
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -51,9 +70,14 @@ namespace Cashin
                 con.Close();
             }
         }
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void AddItem_Close_Click(object sender, RoutedEventArgs e)
         {
+            if (SucessTransaction.IsOpen)
+            {
+                this.Close();
+            }
             SucessTransaction.IsOpen = false;
+
             this.Opacity = 1;
         }
     }
