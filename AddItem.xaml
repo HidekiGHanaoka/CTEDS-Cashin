@@ -23,27 +23,28 @@
                 <RowDefinition Height="115"/>
                 <RowDefinition Height="115"/>
                 <RowDefinition/>
-                <RowDefinition Height="190"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="2" Margin="30 0 30 0">
                 <StackPanel>
-                    <TextBlock Text="Título" FontSize="24"/>
-                    <TextBox Margin="0 20 0 0" Background="White" FontSize="24"/>
+                    <TextBlock Text="Título" FontSize="24" />
+                    <TextBox Margin="0 20 0 0" Background="White" FontSize="24" x:Name="TituloForm"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="3" Margin="30 0 30 0">
                 <StackPanel>
-                    <TextBlock Text="Quantidade de Dinheiro" FontSize="24"/>
-                    <TextBox Margin="0 20 0 0" Background="White" FontSize="24"/>
+                    <TextBlock Text="Quantidade de Dinheiro" FontSize="24" />
+                    <TextBox Margin="0 20 0 0" Background="White" FontSize="24" x:Name="ValorForm"/>
                 </StackPanel>          
             </Grid>
             <Grid Grid.Row="4" Margin="30 0 30 0">
                 <StackPanel>
-                    <TextBlock Text="Descrição" FontSize="24"/>
-                    <TextBox Height="120" TextWrapping="Wrap" Margin="0 20 0 0" Background="White" FontSize="24"/>
+                    <TextBlock Text="Descrição" FontSize="24" />
+                    <TextBox Height="100" TextWrapping="Wrap" Margin="0 20 0 0" Background="White" FontSize="24" x:Name="DescricaoForm"/>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Row="5" Margin="30 20 30 0">
+            <Grid Grid.Row="5" Margin="30 10 30 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -51,7 +52,7 @@
                 <Grid Grid.Column="0">
                     <StackPanel>
                         <TextBlock Text="Tipo de Transação" FontSize="24"/>
-                        <ComboBox Margin="0 20 30 0" FontSize="16">
+                        <ComboBox Margin="0 20 30 0" FontSize="16" x:Name="TipoForm">
                             <ComboBoxItem IsSelected="True">Escolha uma opção</ComboBoxItem>
                             <ComboBoxItem>Recebimento</ComboBoxItem>
                             <ComboBoxItem>Gasto</ComboBoxItem>
@@ -61,7 +62,7 @@
                 <Grid Grid.Column="1">
                     <StackPanel>
                         <TextBlock Text="Categoria" FontSize="24"/>
-                        <ComboBox Margin="0 20 30 0" FontSize="16">
+                        <ComboBox Margin="0 20 30 0" FontSize="16" x:Name="CategoriaForm">
                             <ComboBoxItem IsSelected="True">Escolha uma opção</ComboBoxItem>
                             <ComboBoxItem>Mercado</ComboBoxItem>
                             <ComboBoxItem>Lazer</ComboBoxItem>
@@ -69,6 +70,48 @@
                     </StackPanel>
                 </Grid>
             </Grid>
+            <Grid Grid.Row="6">
+                <Button 
+                    Height="40" 
+                    VerticalAlignment="Top" 
+                    Width="400" 
+                    FontSize="20" 
+                    Background="#83BD75" 
+                    VerticalContentAlignment="Center" 
+                    Foreground="White" 
+                    Click="NewItemDB_Click"
+                    Cursor="Hand">
+                    
+                    Adicionar Item
+                </Button>
+            </Grid>
+            <Popup 
+            Name="SucessTransaction"
+            Placement="Center"
+            >
+                <Grid
+                Width="300"
+                Height="180"
+                Background="White">
+                    <TextBlock
+                    FontFamily="Exo"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+                    Item cadastrado!
+                    </TextBlock>
+                    <Button
+                    Click="Close_Click"
+                    Width="100"
+                    Height="30"
+                    Margin="0 0 0 30"
+                    VerticalAlignment="Bottom"
+                    >
+                        Fechar
+                    </Button>
+                </Grid>
+            </Popup>
         </Grid>
     </Grid>
     
