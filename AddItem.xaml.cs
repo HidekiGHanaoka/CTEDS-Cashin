@@ -1,4 +1,5 @@
-﻿using Cashin.Models;
+﻿using Cashin.Controllers;
+using Cashin.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -34,10 +35,12 @@ namespace Cashin
                 String queryCreateTransaction = "INSERT INTO [dbo].[Transactions]([ID],[Title],[Value],[Description],[Date],[Type],[Category]) VALUES (@ID, @Title, @Value, @Description, @Date, @Type, @Category)";
                 SqlCommand sqlCmdCreateTransaction = new SqlCommand(queryCreateTransaction, con);
                 sqlCmdCreateTransaction.CommandType = System.Data.CommandType.Text;
+                string tipo = TipoForm.Text;
+                float valor = Convert.ToSingle(ValorForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@ID", User.Id);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Date", System.DateTime.Now.ToShortDateString());
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Title", TituloForm.Text);
-                sqlCmdCreateTransaction.Parameters.AddWithValue("@Value", ValorForm.Text);
+                sqlCmdCreateTransaction.Parameters.AddWithValue("@Value", valor);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Category", CategoriaForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Description", DescricaoForm.Text);
                 sqlCmdCreateTransaction.Parameters.AddWithValue("@Type", TipoForm.Text);
@@ -53,6 +56,8 @@ namespace Cashin
                 }
                 if (count == 1)
                 {
+                    BalanceController.ActualBalance(tipo, valor);
+                    LimitController.ActualLimit(tipo, valor);
                     SucessTransaction.IsOpen = true;
                 }
                 else

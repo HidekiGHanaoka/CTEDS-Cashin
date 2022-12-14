@@ -35,11 +35,12 @@ namespace Cashin
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
                 float newLimite = (float)Convert.ToSingle(LimiteForm.Text);
-                User.Saldo = newLimite;
+                User.Limite = newLimite;
 
                 string query = "UPDATE [dbo].[Users] SET Limit=@Limit WHERE ID=@Id";
                 SqlCommand sqlCmd = new SqlCommand(query, con);
-                sqlCmd.Parameters.AddWithValue("@Balance", Convert.ToSingle(LimiteForm.Text));
+                sqlCmd.CommandType = System.Data.CommandType.Text;
+                sqlCmd.Parameters.AddWithValue("@Limit", Convert.ToSingle(LimiteForm.Text));
                 sqlCmd.Parameters.AddWithValue("@ID", User.Id);
                 int count = 0;
                 try
