@@ -49,23 +49,26 @@ namespace Cashin
                 {
                     this.Opacity = 0.5;
                     Sucess.IsOpen = true;
-                    SqlDataReader rdr;
 
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        rdr = cmd.ExecuteReader();
+                    String query2 = "SELECT ID, Name, Email, Balance, Limit FROM [dbo].[Users] WHERE Email=@Email AND Password=@Password";
+                    //SqlDataReader rdr;
 
-                        while (rdr.Read())
-                        {
-                            ctx.ActualUser = new User()
-                            {
-                                Nome = rdr["username"].ToString(),
-                                Email = rdr["email"].ToString(),
-                                Saldo = (float)rdr["saldo"],
-                                Limite = (float)rdr["limite"]
-                            };
-                        }
-                    }
+                    //using (sqlCmd)
+                    //{
+                    //    rdr = sqlCmd.ExecuteReader();
+
+                    //    while (rdr.Read())
+                    //    {
+                    //        User user = new User()
+                    //        {
+                    //            Id = (Guid)rdr["ID"],
+                    //            Nome = rdr["Name"].ToString(),
+                    //            Email = rdr["Email"].ToString(),
+                    //            Saldo = (float)rdr["Balance"],
+                    //            Limite = (float)rdr["Limit"]
+                    //        };
+                    //    }
+                    //}
                     //String query2 = "SELECT * FROM [Transactions] WHERE ("
 
                 }
@@ -87,9 +90,12 @@ namespace Cashin
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            AccountWindow window = new AccountWindow();
-            window.Show();
-            this.Close();
+            if (Sucess.IsOpen == true)
+            {
+                AccountWindow window = new AccountWindow();
+                window.Show();
+                this.Close();
+            }
             Sucess.IsOpen = false;
             Fail.IsOpen = false;
             this.Opacity = 1;
