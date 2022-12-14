@@ -18,7 +18,7 @@ namespace Cashin.Controllers
 
             else if (tipo == "Recebimento")
             {
-                User.Saldo += valor;
+                User.Limite += valor;
             }
         }
     }
