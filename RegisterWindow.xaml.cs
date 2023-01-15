@@ -27,7 +27,7 @@ namespace Cashin
 
         private void RegisterDB_Click(object sender, RoutedEventArgs e)
         {
-            string stringConexao = "Server=labsoft.pcs.usp.br; Initial Catalog=db_12; User Id=usuario_12; Password=9077879676;";
+            string stringConexao = "Server=SERVER; Initial Catalog=DB; User Id=User; Password=Pass;";
             SqlConnection con = new SqlConnection(stringConexao);
             try
             {
